@@ -12,7 +12,7 @@ links = "out123"
 
 [dependencies]
 libc = "0.2"
-mpg123-sys = "0.1"
+mpg123-sys = "0.2"
 
 [build-dependencies]
 pkg-config = "0.3"
