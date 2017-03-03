@@ -1,6 +1,6 @@
 [package]
 name = "out123-sys"
-version = "0.2.1"
+version = "0.3.0"
 license = "Apache-2.0/MIT"
 authors = ["Ivan Ukhov <ivan.ukhov@gmail.com>"]
 description = "The package provides bindings to out123."
@@ -17,7 +17,7 @@ static = ["mpg123-sys/static"]
 
 [dependencies]
 libc = "0.2"
-mpg123-sys = "0.3"
+mpg123-sys = "0.4"
 
 [build-dependencies]
 pkg-config = "0.3"
