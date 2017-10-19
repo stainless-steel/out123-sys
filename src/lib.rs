@@ -66,57 +66,64 @@ pub enum out123_propflags {
 }
 pub use out123_propflags::*;
 
-extern {
+extern "C" {
     pub fn out123_new() -> *mut out123_handle;
     pub fn out123_del(ao: *mut out123_handle);
     pub fn out123_strerror(ao: *mut out123_handle) -> *const c_char;
     pub fn out123_errcode(ao: *mut out123_handle) -> c_int;
     pub fn out123_plain_strerror(errcode: c_int) -> *const c_char;
     pub fn out123_set_buffer(ao: *mut out123_handle, buffer_bytes: size_t) -> c_int;
-    pub fn out123_param(ao: *mut out123_handle,
-                        code: out123_parms,
-                        value: c_long,
-                        fvalue: c_double,
-                        svalue: *const c_char)
-                        -> c_int;
-    pub fn out123_getparam(ao: *mut out123_handle,
-                           code: out123_parms,
-                           ret_value: *mut c_long,
-                           ret_fvalue: *mut c_double,
-                           ret_svalue: *mut *mut c_char)
-                           -> c_int;
+    pub fn out123_param(
+        ao: *mut out123_handle,
+        code: out123_parms,
+        value: c_long,
+        fvalue: c_double,
+        svalue: *const c_char,
+    ) -> c_int;
+    pub fn out123_getparam(
+        ao: *mut out123_handle,
+        code: out123_parms,
+        ret_value: *mut c_long,
+        ret_fvalue: *mut c_double,
+        ret_svalue: *mut *mut c_char,
+    ) -> c_int;
     pub fn out123_param_from(ao: *mut out123_handle, from_ao: *mut out123_handle) -> c_int;
-    pub fn out123_drivers(ao: *mut out123_handle,
-                          names: *mut *mut *mut c_char,
-                          descr: *mut *mut *mut c_char)
-                          -> c_int;
-    pub fn out123_open(ao: *mut out123_handle,
-                       driver: *const c_char,
-                       device: *const c_char)
-                       -> c_int;
-    pub fn out123_driver_info(ao: *mut out123_handle,
-                              driver: *mut *mut c_char,
-                              device: *mut *mut c_char)
-                              -> c_int;
+    pub fn out123_drivers(
+        ao: *mut out123_handle,
+        names: *mut *mut *mut c_char,
+        descr: *mut *mut *mut c_char,
+    ) -> c_int;
+    pub fn out123_open(
+        ao: *mut out123_handle,
+        driver: *const c_char,
+        device: *const c_char,
+    ) -> c_int;
+    pub fn out123_driver_info(
+        ao: *mut out123_handle,
+        driver: *mut *mut c_char,
+        device: *mut *mut c_char,
+    ) -> c_int;
     pub fn out123_close(ao: *mut out123_handle);
     pub fn out123_encodings(ao: *mut out123_handle, rate: c_long, channels: c_int) -> c_int;
     pub fn out123_encsize(encoding: c_int) -> c_int;
-    pub fn out123_formats(ao: *mut out123_handle,
-                          rates: *const c_long,
-                          ratecount: c_int,
-                          minchannels: c_int,
-                          maxchannels: c_int,
-                          fmtlist: *mut *mut mpg123_fmt)
-                          -> c_int;
+    pub fn out123_formats(
+        ao: *mut out123_handle,
+        rates: *const c_long,
+        ratecount: c_int,
+        minchannels: c_int,
+        maxchannels: c_int,
+        fmtlist: *mut *mut mpg123_fmt,
+    ) -> c_int;
     pub fn out123_enc_list(enclist: *mut *mut c_int) -> c_int;
     pub fn out123_enc_byname(name: *const c_char) -> c_int;
     pub fn out123_enc_name(encoding: c_int) -> *const c_char;
     pub fn out123_enc_longname(encoding: c_int) -> *const c_char;
-    pub fn out123_start(ao: *mut out123_handle,
-                        rate: c_long,
-                        channels: c_int,
-                        encoding: c_int)
-                        -> c_int;
+    pub fn out123_start(
+        ao: *mut out123_handle,
+        rate: c_long,
+        channels: c_int,
+        encoding: c_int,
+    ) -> c_int;
     pub fn out123_pause(ao: *mut out123_handle);
     pub fn out123_continue(ao: *mut out123_handle);
     pub fn out123_stop(ao: *mut out123_handle);
@@ -125,10 +132,11 @@ extern {
     pub fn out123_drain(ao: *mut out123_handle);
     pub fn out123_ndrain(ao: *mut out123_handle, bytes: size_t);
     pub fn out123_buffered(ao: *mut out123_handle) -> size_t;
-    pub fn out123_getformat(ao: *mut out123_handle,
-                            rate: *mut c_long,
-                            channels: *mut c_int,
-                            encoding: *mut c_int,
-                            framesize: *mut c_int)
-                            -> c_int;
+    pub fn out123_getformat(
+        ao: *mut out123_handle,
+        rate: *mut c_long,
+        channels: *mut c_int,
+        encoding: *mut c_int,
+        framesize: *mut c_int,
+    ) -> c_int;
 }

@@ -12,6 +12,9 @@ fn main() {
     }
     let dynamic = env::var("CARGO_FEATURE_STATIC").is_err();
     let output = PathBuf::from(get!("DEP_MPG123_ROOT"));
-    println!("cargo:rustc-link-lib={}=out123", if dynamic { "dylib" } else { "static" });
+    println!(
+        "cargo:rustc-link-lib={}=out123",
+        if dynamic { "dylib" } else { "static" },
+    );
     println!("cargo:rustc-link-search={}", output.join("lib").display());
 }
