@@ -17,7 +17,7 @@ static = ["mpg123-sys/static"]
 
 [dependencies]
 libc = "0.2"
-mpg123-sys = "0.4"
+mpg123-sys = "0.5"
 
 [build-dependencies]
 pkg-config = "0.3"
